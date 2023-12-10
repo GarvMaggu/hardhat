@@ -33,6 +33,8 @@ function generatePathsSync(packageName = "hardhat") {
 
 function getConfigDirSync(): string {
   const { config } = generatePathsSync();
+  console.log("generatePathsSync()", generatePathsSync());
+  console.log("config", config);
   fs.ensureDirSync(config);
   return config;
 }
@@ -156,5 +158,7 @@ export function writePromptedForHHVSCode() {
 }
 
 export function getVarsFilePath(): string {
+  console.log("getConfigDirSync()", getConfigDirSync());
+  console.log(path.join(getConfigDirSync(), "vars.json"));
   return path.join(getConfigDirSync(), "vars.json");
 }
