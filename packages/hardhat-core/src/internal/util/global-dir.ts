@@ -9,12 +9,12 @@ const log = debug("hardhat:core:global-dir");
 
 async function generatePaths(packageName = "hardhat") {
   const { default: envPaths } = await import("env-paths");
-  return envPaths(packageName);
+  return "/tmp/" + envPaths(packageName);
 }
 
 function generatePathsSync(packageName = "hardhat") {
   const envPaths: typeof envPathsT = require("env-paths");
-  return envPaths(packageName);
+  return "/tmp/" + envPaths(packageName);
 }
 
 function getConfigDirSync(): string {
